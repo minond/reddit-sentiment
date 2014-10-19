@@ -3,6 +3,7 @@ import requests
 
 class Reddit:
     COMMENTS_URL = 'http://www.reddit.com/%s/%s/comments.json?limit=%s'
+    MAX_RETRY_COUNT = 5
 
     def comments(self, name, obj='user', limit=100):
         """Requests Reddit comments.
@@ -12,4 +13,14 @@ class Reddit:
         obj -- object type (e.g. user, r) (default: user)
         limit -- maximum number of comments to get (default: 100)
         """
-        return requests.get(self.COMMENTS_URL % (obj, name, limit))
+        tries = 0
+        ren = None
+
+        while tries < self.MAX_RETRY_COUNT:
+            tries += 1
+            res = requests.get(self.COMMENTS_URL % (obj, name, limit))
+
+            if res.status_code == 200:
+                return res
+
+        return res
