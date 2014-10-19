@@ -5,11 +5,21 @@ NEUTRAL = 0
 NEGATIVE = -1
 
 
-def mood(sentiment):
+def human(mood):
+    """Takes a mood label and returns a mood string"""
+    if mood == POSITIVE:
+        return 'positive'
+    elif mood == NEGATIVE:
+        return 'negative'
+    else:
+        return 'neutral'
+
+
+def mood(score):
     """Takes a sentiment score and returns a mood label"""
-    if sentiment > 0:
+    if score > 0:
         return POSITIVE
-    elif sentiment < 0:
+    elif score < 0:
         return NEGATIVE
     else:
         return NEUTRAL
@@ -70,6 +80,7 @@ def report(strings, sample_set_size=10):
 
     return {
         'sentiment': mood(overall_sentiment),
+        'human_sentiment': human(mood(overall_sentiment)),
         'total_processed': total_processed,
         'overall_sentiment': overall_sentiment,
         'average_sentiment': float(overall_sentiment) / total_processed,
@@ -83,13 +94,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         text = sys.argv[1]
         sentence = analyze(text)
-
-        if sentence['sentiment'] == POSITIVE:
-            mood = 'positive'
-        elif sentence['sentiment'] == NEGATIVE:
-            mood = 'negative'
-        else:
-            mood = 'neutral'
+        mood = human(sentence['sentiment'])
 
         print 'sentiment is %s, with a score of %s' % (mood, sentence['score'])
         sys.exit(0)

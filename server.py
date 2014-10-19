@@ -9,7 +9,7 @@ reddit = Reddit()
 
 @app.route('/')
 def get_index():
-    return 'hi'
+    return app.send_static_file('index.html')
 
 
 @app.route('/sentiment/<string:obj>/<string:name>')
@@ -27,6 +27,8 @@ def get_sentiment(obj, name):
                 posts['data']['children'])]
 
             report = sentiment.report(comments)
+            report['obj'] = obj
+            report['name'] = name
             ok = True
         except Exception as err:
             print err

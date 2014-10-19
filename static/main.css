@@ -1,0 +1,43 @@
+body {
+    cursor: default;
+    overflow-y: scroll;
+}
+
+.comments > div {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.container-fluid {
+    border-radius: 4px;
+    border: 1px solid rgb(234, 234, 234);
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 10px 40px;
+    width: 600px;
+}
+
+.glyphicon-refresh-animate {
+    margin-right: 8px;
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}

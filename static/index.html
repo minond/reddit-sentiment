@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>reddit comment sentiments</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/main.css">
+    </head>
+    <body>
+        <div class="container-fluid" id="analyze">
+            <div class="row">
+                <h2>reddit comment sentiments</h2>
+            </div>
+            <div class="row">
+                <form role="form" id="analyze-comments">
+                    <div class="form-group">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="obj" value="r" checked="checked">
+                                subreddit
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="obj" value="user">
+                                user
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="name" placeholder="name" value="javascript">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-link pull-right">
+                            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                            analyze
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="alert alert-danger" role="alert"></div>
+
+            <div class="row" id="report">
+                <h4 class="title"></h4>
+                <div class="content"></div>
+                <div class="comments"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/report.js"></script>
+    </body>
+</html>
