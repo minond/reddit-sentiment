@@ -1,9 +1,9 @@
 import requests
 
-COMMENTS_URL = 'http://www.reddit.com/%s/%s/comments.json?limit=%s'
-
 
 class Reddit:
+    COMMENTS_URL = 'http://www.reddit.com/%s/%s/comments.json?limit=%s'
+
     def comments(self, name, obj='user', limit=100):
         """Requests Reddit comments.
 
@@ -12,4 +12,4 @@ class Reddit:
         obj -- object type (e.g. user, r) (default: user)
         limit -- maximum number of comments to get (default: 100)
         """
-        return requests.get(COMMENTS_URL % (obj, name, limit))
+        return requests.get(self.COMMENTS_URL % (obj, name, limit))

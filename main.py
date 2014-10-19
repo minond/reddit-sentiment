@@ -1,11 +1,20 @@
 from src import sentiment
-import requests
+from src.reddit import Reddit
 
-class Reddit:
-    def comments(self, obj, username):
-        req = requests.get('http://www.reddit.com/%s/%s/comments.json?limit=100' % (obj, username))
-        print req.json()
-
-# print sentiment.analyze('')
 reddit = Reddit()
-reddit.comments('user', 'cybrbeast')
+res = reddit.comments('php', obj='r')
+
+if res.status_code == 200:
+    try:
+        posts = res.json()
+        comments = [post['data']['body'] for i, post in enumerate(
+            posts['data']['children'])]
+
+        report = sentiment.report(comments)
+        print report
+    except Exception as err:
+        print 'error processing comments'
+        print err
+else:
+    print 'error downloading comments'
+    print res
