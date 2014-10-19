@@ -17,7 +17,7 @@ def get_sentiment(obj, name):
     ok = False
     human_error = ''
 
-    res = reddit.comments('php', obj='r')
+    res = reddit.comments(name, obj=obj)
     report = {}
 
     if res.status_code == 200:
@@ -34,7 +34,9 @@ def get_sentiment(obj, name):
     else:
         human_error = 'error downloading comments'
 
-    return jsonify(ok=ok, human_error=human_error, report=report)
+    return jsonify(
+        ok=ok, human_error=human_error,
+        report=report, obj=obj, name=name)
 
 if __name__ == '__main__':
     app.run()
