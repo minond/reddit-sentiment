@@ -1,8 +1,13 @@
 'use strict';
 
+/* globals $ */
+
+var COMMENT_CUTOFF_LEN = 300,
+    COMMENT_MAX_OFFSET = 1.15;
+
 var REPORT_LABEL = '{obj}/{name}',
     REPORT_COMMENT = '- {text} ({score})',
-    REPORT_CONTENT = 'comments for {obj}/{name} seems to be in a ' +
+    REPORT_CONTENT = 'comments for {obj}/{name} appear to be in a ' +
         '{human_sentiment} mood, with an average score of ' +
         '{average_sentiment} across {total_processed} comments analyzed.';
 
@@ -79,6 +84,11 @@ function show_report(res) {
     $report_comments.find('*').remove();
 
     $.each(res.report.samples, function (i, sample) {
+        if (sample.text.length > COMMENT_CUTOFF_LEN * COMMENT_MAX_OFFSET) {
+            sample.text = sample.text.substr(0, COMMENT_CUTOFF_LEN).replace(/\s+$/, '');
+            sample.text += '...';
+        }
+
         $comment = $('<div>').text(sprintf(REPORT_COMMENT, sample));
         $report_comments.append($comment);
     });
@@ -118,10 +128,11 @@ function request_teardown() {
 }
 
 $analyze.submit(function (e) {
-    e.preventDefault();
+    var name, obj;
 
-    var name = $name.val(),
-        obj = $objects.filter(':checked').val();
+    e.preventDefault();
+    name = $name.val();
+    obj = $objects.filter(':checked').val();
 
     get_report(obj, name, request_setup, request_teardown, show_report, show_errors);
 });

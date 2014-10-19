@@ -3,3 +3,4 @@ install:
 
 lint:
 	pep8 src/*.py *.py
+	jshint static/*.js
