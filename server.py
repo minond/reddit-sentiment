@@ -42,4 +42,5 @@ def get_sentiment(obj, name):
         report=report, obj=obj, name=name)
 
 if __name__ == '__main__':
-    app.run(host=os.environ.get('APP_HOST','0.0.0.0'), port=int(os.environ.get('APP_PORT', 5000)))
+    app.run(host=os.environ.get('APP_HOST', '0.0.0.0'), port=int(
+        os.environ.get('APP_PORT', 5000)))
