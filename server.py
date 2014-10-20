@@ -2,6 +2,7 @@ from flask import Flask
 from flask import jsonify
 from src import sentiment
 from src.reddit import Reddit
+import os
 
 app = Flask(__name__)
 reddit = Reddit()
@@ -41,4 +42,4 @@ def get_sentiment(obj, name):
         report=report, obj=obj, name=name)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host=os.environ.get('APP_HOST','0.0.0.0'), port=int(os.environ.get('APP_PORT', 5000)))
