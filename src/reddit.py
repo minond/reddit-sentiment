@@ -5,7 +5,7 @@ import time
 class Reddit:
     COMMENTS_URL = 'http://www.reddit.com/%s/%s/comments.json?limit=%s'
     MAX_RETRY_COUNT = 10
-    RETRY_WAIT_TIME = 10
+    RETRY_WAIT_TIME = 2
 
     def comments(self, name, obj='user', limit=100):
         """Requests Reddit comments.
