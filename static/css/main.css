@@ -3,6 +3,10 @@ body {
     overflow-y: scroll;
 }
 
+#analyze {
+    position: relative;
+}
+
 .comments > div {
     font-style: italic;
     margin-bottom: 15px;
