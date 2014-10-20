@@ -25,6 +25,6 @@ class Reddit:
             if res.status_code == 200:
                 return res
             else:
-                time.sleep(RETRY_WAIT_TIME)
+                time.sleep(self.RETRY_WAIT_TIME)
 
         return res
