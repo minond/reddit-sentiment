@@ -5,10 +5,11 @@ clean:
 
 install:
 	pip install -r requirements.txt
+	npm install
 
 lint:
 	pep8 src/*.py tests/*.py *.py
-	jshint static/js/*.js
+	node_modules/.bin/jshint static/js/*.js
 
 test:
 	touch tests/src

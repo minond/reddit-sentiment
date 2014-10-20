@@ -1,6 +1,7 @@
 reddit sentiments
 =================
 
+[![Build Status](https://travis-ci.org/minond/reddit-sentiment.svg?branch=master)](https://travis-ci.org/minond/reddit-sentiment)
 analyzes the mood of reddit comments
 
 ### running

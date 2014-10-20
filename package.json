@@ -1,0 +1,17 @@
+{
+  "name": "reddit-sentiment",
+  "version": "0.0.0",
+  "description": "reddit sentiments",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/minond/reddit-sentiment"
+  },
+  "author": "Marcos Minond <minond.marcos@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/minond/reddit-sentiment/issues"
+  },
+  "homepage": "https://github.com/minond/reddit-sentiment",
+  "devDependencies": {
+    "jshint": "~2.5.6"
+  }
+}
