@@ -7,7 +7,8 @@ var POSITIVE = 1,
     NEGATIVE = -1;
 
 var COMMENT_CUTOFF_LEN = 300,
-    COMMENT_MAX_OFFSET = 1.15;
+    COMMENT_MAX_OFFSET = 1.15,
+    SCORE_PRECISION = 3;
 
 var TRANSITION_EVENTS = 'transitionend ' +
     'webkitTransitionEnd oTransitionEnd ' +
@@ -15,12 +16,10 @@ var TRANSITION_EVENTS = 'transitionend ' +
 
 var ERROR_MESSAGE = 'error reqesting comments for {obj}/{name}: {error}',
     REPORT_LABEL = '{obj}/{name}',
-    REPORT_COMMENT = '- {text} ({score})',
+    REPORT_COMMENT = '- {text} ({human_sentiment}: {score})',
     REPORT_CONTENT = 'comments for {obj}/{name} appear to be in a ' +
         '{human_sentiment} mood, with an average score of ' +
         '{average_sentiment} across {total_processed} comments analyzed.';
-
-var noop = function () {};
 
 var $analyze = $('#analyze'),
     $err_msg = $analyze.find('.alert-danger').hide(),
@@ -35,13 +34,15 @@ var $report = $analyze.find('#report'),
     $report_title = $report.find('.title'),
     $alien = $analyze.find('#reddit-alien').hide();
 
+var noop = function () {};
+
 /**
  * @param {Number} deg degrees to move antenna by
  * @param {Number} time transition time
  * @param {Function} cb transtion end callback
  * @return {jQuery} returns the jqueryfid antenna node
  */
-function moveAntenna(deg, time, cb) {
+function move_antenna(deg, time, cb) {
     return $alien.find('.antenna').css({
         transition: time + 's',
         transform: 'rotate(' + deg + 'deg)'
@@ -56,32 +57,32 @@ function moveAntenna(deg, time, cb) {
  * @param {Function} cb transtion end callback
  * @return {jQuery} returns the jqueryfid ear nodes
  */
-function wiggleEars(top, left, right, time, cb) {
+function wiggle_ears(top, left, right, time, cb) {
     $alien.find('.ear.left').css({
         transition: time + 's',
         top: top,
         left: left
     });
 
-    $('#reddit-alien .ear.right').css({
+    $alien.find('.ear.right').css({
         transition: time + 's',
         top: top,
         left: right
     }).one(TRANSITION_EVENTS, cb || noop);
 
-    return $('#reddit-alien .ear');
+    return $alien.find('.ear');
 }
 
 /**
  * wiggles the antenna and ears
  */
 function alien_is_happy() {
-    wiggleEars(90, 50, 206, 0.5, function () {
-        wiggleEars(100, 40, 216, 0.5);
+    wiggle_ears(90, 50, 206, 0.5, function () {
+        wiggle_ears(100, 40, 216, 0.5);
     });
 
-    moveAntenna(1, 0.5, function () {
-        moveAntenna(16, 0.5);
+    move_antenna(1, 0.5, function () {
+        move_antenna(16, 0.5);
     });
 }
 
@@ -142,6 +143,7 @@ function show_report(res) {
         content = sprintf(REPORT_CONTENT, res.report);
 
     $alien.show();
+    $report.css({ opacity: 1 });
     $report_title.text(label);
     $report_content.text(content);
     $report_comments.find('*').remove();
@@ -152,6 +154,7 @@ function show_report(res) {
             sample.text += '...';
         }
 
+        sample.score = sample.score.toFixed(SCORE_PRECISION);
         $comment = $('<div>').text(sprintf(REPORT_COMMENT, sample));
         $report_comments.append($comment);
     });
@@ -190,11 +193,8 @@ function request_setup() {
     $err_msg.hide();
     $spinner.show();
 
-    $report.show();
-    $alien.hide();
-    $report_title.text('');
-    $report_content.text('');
-    $report_comments.text('');
+    $report.css({ opacity: 0.5 })
+        .show();
 }
 
 /**

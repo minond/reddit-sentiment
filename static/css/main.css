@@ -33,6 +33,10 @@ body {
     width: 600px;
 }
 
+#analyze .alert {
+    margin-top: 12px;
+}
+
 .glyphicon-refresh-animate {
     -animation: spin .7s infinite linear;
     -webkit-animation: spin2 .7s infinite linear;
@@ -60,6 +64,6 @@ body {
 @media (min-width: 768px) {
     .container-fluid {
         margin-top: 20px;
-        border: 1px solid rgb(234, 234, 234);
+        border: 1px solid rgb(223, 223, 223);
     }
 }
