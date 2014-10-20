@@ -1,0 +1,155 @@
+/**
+ * copied from http://www.timbormans.com/code/reddit-alien-css/
+ */
+
+#reddit-alien {
+    width: 296px;
+    height: 380px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#reddit-alien div { position: absolute; }
+
+#reddit-alien .antenna {
+    height: 50px;
+    width: 44px;
+    top: 40px;
+    left: 155px;
+    border: 7px solid black;
+    border-width: 9px 0 0 9px;
+    -webkit-border-radius: 5px 0 0 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 5px 0 0 0;
+    border-radius: 5px 0 0 0;
+    -webkit-transform: rotate(16deg);
+    -moz-transform: rotate(16deg);
+    -o-transform:rotate(16deg);
+}
+
+#reddit-alien .dot {
+    width: 26px;
+    height: 26px;
+    left: 37px;
+    top: -28px;
+    border: 8px solid black;
+    -webkit-border-radius: 26px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 26px;
+    border-radius: 26px;
+    background: white;
+}
+
+#reddit-alien .ear {
+    width: 32px;
+    height: 32px;
+    top: 100px;
+    border: 8px solid black;
+    -webkit-border-radius: 32px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 32px;
+    border-radius: 32px;
+    background: white;
+}
+#reddit-alien .ear.left { left: 40px; }
+#reddit-alien .ear.right { left: 216px; }
+
+#reddit-alien .head {
+    z-index: 2;
+    top: 88px;
+    left: 52px;
+    height: 115px;
+    width: 182px;
+    border: 9px solid black;
+    -webkit-border-radius: 150px 100px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 150px / 100px;
+    border-radius: 150px / 100px;
+    background: white;
+}
+
+#reddit-alien .eye {
+    z-index: 2;
+    width: 32px;
+    height: 32px;
+    top: 29px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    background: orangeRed;
+}
+#reddit-alien .eye.left { left: 42px; }
+#reddit-alien .eye.right { left: 110px; }
+
+#reddit-alien .mouth {
+    z-index: 1;
+    width: 94px;
+    height: 80px;
+    top: 3px;
+    left: 35px;
+    border: 9px solid white;
+    border-bottom-color: black;
+    -webkit-border-radius: 150px 120px;
+    -moz-border-radius: 150px / 120px;
+    border-radius: 150px / 120px;
+}
+
+#reddit-alien .body {
+    z-index: 1;
+    width: 88px;
+    height: 178px;
+    left: 100px;
+    top: 150px;
+    border: 8px solid black;
+    -webkit-border-radius: 120px 250px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 120px / 250px;
+    border-radius: 120px / 250px;
+    background: white;
+}
+
+#reddit-alien .arm {
+    height: 78px;
+    width: 39px;
+    top: 210px;
+    border: 8px solid black;
+    background: white;
+    -webkit-background-clip: padding-box;
+}
+
+#reddit-alien .arm.left {
+    left: 78px;
+    -webkit-border-radius: 43px 0 0 43px;
+    -moz-border-radius: 80px 0 0 90px;
+    border-radius: 43px 0 0 43px;
+}
+
+#reddit-alien .arm.right {
+    left: 170px;
+    -webkit-border-radius: 0 43px 43px 0;
+    -moz-border-radius: 0 80px 90px 0;
+    border-radius: 0 43px 43px 0;
+}
+
+#reddit-alien .foot {
+    border: 8px solid black;
+    width : 50px;
+    height: 16px;
+    top: 312px;
+    background: white;
+    -webkit-background-clip: padding-box;
+}
+
+#reddit-alien .foot.left {
+    -webkit-border-radius: 24px 24px 0 0;
+    -moz-border-radius: 30px 0 0 10px;
+    border-radius: 24px 24px 0 0;
+    left: 82px;
+}
+
+#reddit-alien .foot.right {
+    -webkit-border-radius: 24px 24px 0 0;
+    -moz-border-radius: 0 30px 10px 0;
+    border-radius: 24px 24px 0 0;
+    left: 156px;
+}
