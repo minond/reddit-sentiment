@@ -74,6 +74,17 @@ function wiggle_ears(top, left, right, time, cb) {
 }
 
 /**
+ * makes the alien look sad
+ */
+function alien_is_sad() {
+    wiggle_ears(110, 30, 226, 0.5, function () {
+        setTimeout(function () {
+            wiggle_ears(100, 40, 216, 0.5);
+        }, 1000);
+    });
+}
+
+/**
  * wiggles the antenna and ears
  */
 function alien_is_happy() {
@@ -162,6 +173,10 @@ function show_report(res) {
     switch (res.report.sentiment) {
         case POSITIVE:
             setTimeout(alien_is_happy, 1000);
+            break;
+
+        case NEGATIVE:
+            setTimeout(alien_is_sad, 1000);
             break;
     }
 }
