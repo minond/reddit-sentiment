@@ -26,13 +26,14 @@ def mood(score):
 
 
 def analyze(text):
-    """Return a dictionary with a sentence's sentiment, score, and text"""
+    """Return a dictionary with a sentence's sentiment, score, text, and
+    a human friendly sentiment string"""
     sentence = TextBlob(text)
     score = sentence.sentiment[0]
-    sentiment = mood(score)
 
     return {
-        'sentiment': sentiment,
+        'human_sentiment': human(mood(score)),
+        'sentiment': mood(score),
         'score': score,
         'text': sentence.string
     }
