@@ -4,7 +4,8 @@ reddit sentiments
 analyzes the mood of reddit comments
 
 ### running
-install dependencies with `make install`, and start web server with `python server.py`
+install dependencies with `make install`, and start web server with
+`python server.py`. run `make` to run unit tests and linters.
 
 
 ### thanks to

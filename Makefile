@@ -1,5 +1,8 @@
 all: lint test
 
+clean:
+	rm -r tests/src
+
 install:
 	pip install -r requirements.txt
 
