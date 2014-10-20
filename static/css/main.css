@@ -1,7 +1,6 @@
 body {
     cursor: default;
     overflow-y: scroll;
-    min-height: 1000px;
 }
 
 #analyze {
