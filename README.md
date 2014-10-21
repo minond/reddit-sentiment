@@ -9,5 +9,7 @@ install dependencies with `make install`, and start web server with
 
 
 ### thanks to
-Bird, Steven, Edward Loper and Ewan Klein (2009), **Natural Language Processing
+- Bird, Steven, Edward Loper and Ewan Klein (2009), **Natural Language Processing
 with Python**. O’Reilly Media Inc.
+
+- Tim Bormans, for the [reddit alien code](http://www.timbormans.com/code/reddit-alien-css/)
