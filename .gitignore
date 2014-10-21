@@ -1,3 +1,5 @@
 *.pyc
 /node_modules/
-/tests/src/
+/tests/reddiment/
+/venv/
+/_trial_temp/

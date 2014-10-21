@@ -1,5 +1,5 @@
 import unittest
-from src import sentiment
+from reddiment import sentiment
 
 
 class TestSentimentFunctions(unittest.TestCase):

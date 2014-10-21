@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import jsonify
-from src import sentiment
-from src.reddit import Reddit
+from reddiment import sentiment
+from reddiment.reddit import Reddit
 import os
 
 app = Flask(__name__)
