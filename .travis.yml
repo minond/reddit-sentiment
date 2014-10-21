@@ -4,6 +4,7 @@ python:
 
 install:
     - make install
+    - pip install twisted
 
 script:
     - make lint
